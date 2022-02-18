@@ -1,8 +1,6 @@
 import 'package:exam/core/constants/const.dart';
 import 'package:exam/models/userdata.dart';
 import 'package:flutter/material.dart';
-
-
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SignUpPage extends StatefulWidget {

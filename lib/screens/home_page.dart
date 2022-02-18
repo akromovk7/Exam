@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
   final String? data;
-  const MyHomePage({ Key? key, this. data}) : super(key: key);
+  const MyHomePage({Key? key, this.data}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -15,9 +15,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
-        slivers: [MyAppBar(title: ("Hello ${Userdata.currentUser.name}"),),],
+        slivers: [
+          MyAppBar(
+            title: ("Hello ${Userdata.currentUser.name}"),
+            image: 'assets/images/appbarimage.png',
+          ),
+        ],
       ),
     );
   }
 }
-
