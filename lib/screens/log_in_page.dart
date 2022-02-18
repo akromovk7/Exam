@@ -1,6 +1,5 @@
 import 'package:exam/core/constants/const.dart';
 import 'package:exam/models/userdata.dart';
-import 'package:exam/models/usermodel.dart';
 import 'package:flutter/material.dart';
 
 class LogInPage extends StatefulWidget {
