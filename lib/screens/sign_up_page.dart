@@ -23,7 +23,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
@@ -35,7 +35,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   children: [
                     IconButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/sign_up');
+                        Navigator.pop(context);
                       },
                       icon:
                           SvgPicture.asset("assets/icons/Arrow_left_long.svg"),
