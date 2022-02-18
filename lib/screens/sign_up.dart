@@ -1,18 +1,16 @@
 import 'package:exam/core/constants/const.dart';
 import 'package:exam/models/userdata.dart';
 import 'package:exam/models/usermodel.dart';
-import 'package:exam/screens/log_in_page.dart';
 import 'package:flutter/material.dart';
-import 'package:exam/screens/home_page.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+class SignUpsPage extends StatefulWidget {
+  const SignUpsPage({Key? key}) : super(key: key);
 
   @override
-  _SignUpPageState createState() => _SignUpPageState();
+  _SignUpsPageState createState() => _SignUpsPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _SignUpsPageState extends State<SignUpsPage> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();

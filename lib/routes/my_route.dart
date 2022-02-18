@@ -1,6 +1,6 @@
 import 'package:exam/screens/home_page.dart';
 import 'package:exam/screens/log_in_page.dart';
-import 'package:exam/screens/sign_up.dart';
+import 'package:exam/screens/sign_up_page.dart';
 import 'package:exam/screens/splash_screen_page.dart';
 import 'package:flutter/material.dart';
 
