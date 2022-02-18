@@ -6,8 +6,9 @@ class ConsColors {
   static const Color Black = Colors.black;
   static const Color white = Colors.white;
   static const Color HomeBack = Color(0XFF91D6FD);
+  static const Color Facebook = Color(0XFF3B5999);
+  static const Color EButton = Color(0XFF00CEC9);
 }
-
 
 class PaddingMarginConst {
   static const EdgeInsets _ExtrasmallPadding = EdgeInsets.all(6.0);

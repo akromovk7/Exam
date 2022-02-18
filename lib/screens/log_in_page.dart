@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:exam/core/constants/const.dart';
 import 'package:exam/models/userdata.dart';
 import 'package:flutter/material.dart';
@@ -46,143 +48,181 @@ class _LogInPageState extends State<LogInPage> {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(bottom: 50.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Material(
-                          color: Colors.grey,
+                          color: ConsColors.white,
                           elevation: 4,
-                          borderRadius: BorderRadius.circular(16.0),
+                          borderRadius: BorderRadius.circular(30.0),
                           clipBehavior: Clip.antiAliasWithSaveLayer,
                           child: InkWell(
                             onTap: () {},
-                            child: Ink.image(
-                              image: NetworkImage(
-                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxVWmpRyTWPc11WH7eaS2SFtyvIsVKOLIrHg&usqp=CAU'),
-                              height: 55.0,
-                              width: 55.0,
-                              fit: BoxFit.cover,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Ink.image(
+                                  image: NetworkImage(
+                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxVWmpRyTWPc11WH7eaS2SFtyvIsVKOLIrHg&usqp=CAU'),
+                                  height: 50.0,
+                                  width: 50.0,
+                                  fit: BoxFit.cover,
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  "Google",
+                                  style: TextStyle(
+                                      color: ConsColors.Black,
+                                      fontSize: FontsizeConst.SmallSize,
+                                      fontWeight: FontweightConst.bold),
+                                ),
+                                SizedBox(
+                                  width: 40,
+                                ),
+                              ],
                             ),
                           ),
                         ),
                         SizedBox(width: 25),
                         Material(
-                          color: Colors.grey,
+                          color: ConsColors.Facebook,
                           elevation: 4,
-                          borderRadius: BorderRadius.circular(16.0),
+                          borderRadius: BorderRadius.circular(30.0),
                           clipBehavior: Clip.antiAliasWithSaveLayer,
                           child: InkWell(
                             onTap: () {},
-                            child: Ink.image(
-                              image: NetworkImage(
-                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqaGh3BTgzqBRBK0bqeFw4WEje75q30nJO7A&usqp=CAU'),
-                              height: 55.0,
-                              width: 55.0,
-                              fit: BoxFit.cover,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Ink.image(
+                                  image: NetworkImage(
+                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ-RKHC2HkOCe8-KNgEULVTCsZxKbrQzdFHGMacmaZTK7hgcypuUcrd99UQj6gfr_P_04&usqp=CAU'),
+                                  height: 50.0,
+                                  width: 50.0,
+                                  fit: BoxFit.cover,
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  "Facebook",
+                                  style: TextStyle(
+                                      color: ConsColors.white,
+                                      fontSize: FontsizeConst.SmallSize,
+                                      fontWeight: FontweightConst.bold),
+                                ),
+                                SizedBox(
+                                  width: 30,
+                                ),
+                              ],
                             ),
                           ),
                         )
                       ],
                     ),
                   ),
-                  Padding(
-                    padding: PaddingMarginConst.Simmetric,
-                    child: Form(
-                      key: _formKey,
-                      child: Column(
-                        children: [
-                          TextFormField(
-                            controller: _emailController,
-                            keyboardType: TextInputType.emailAddress,
+                  Container(
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.symmetric(vertical: 37.0),
+                    child: Text(
+                      "Or log in using",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: ConsColors.Black,
+                          fontSize: FontsizeConst.MediumSize,
+                          fontWeight: FontweightConst.w5),
+                    ),
+                  ),
+                  Form(
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        TextFormField(
+                          controller: _emailController,
+                          keyboardType: TextInputType.emailAddress,
+                          textInputAction: TextInputAction.done,
+                          cursorColor: ConsColors.EButton,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(35),
+                            ),
+                            hintText: "Email",
+                            labelText: "Email Address",
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(35),
+                              borderSide: BorderSide(color: ConsColors.EButton),
+                            ),
+                            labelStyle: TextStyle(color: Colors.grey),
+                          ),
+                          validator: (email) {
+                            if (!RegExp(
+                                    r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                .hasMatch(email!)) {
+                              return "Email error";
+                            }
+                          },
+                        ),
+                        SizedBox(height: 25.0),
+                        SizedBox(
+                          height: 80,
+                          width: MediaQuery.of(context).size.width,
+                          child: TextFormField(
+                            controller: _passwordController,
+                            keyboardType: TextInputType.name,
                             textInputAction: TextInputAction.done,
                             cursorColor: Colors.blue,
+                            obscureText: _isSecured,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20),
+                                borderRadius: BorderRadius.circular(35),
                               ),
-                              prefixIcon: Icon(
-                                Icons.email_outlined,
-                                color: Colors.blue,
+                              suffixIcon: IconButton(
+                                splashRadius: 20,
+                                icon: Icon(Icons.remove_red_eye_outlined,
+                                    color: ConsColors.EButton),
+                                onPressed: () {
+                                  setState(() {
+                                    _isSecured = !_isSecured;
+                                  });
+                                },
                               ),
-                              hintText: "Email",
-                              labelText: "Email Address",
+                              hintText: "Password",
+                              labelText: "Password",
                               focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20),
-                                borderSide: BorderSide(color: Colors.blue),
+                                borderRadius: BorderRadius.circular(35),
+                                borderSide:
+                                    BorderSide(color: ConsColors.EButton),
                               ),
-                              labelStyle: TextStyle(color: Colors.blue),
+                              labelStyle: TextStyle(color: Colors.grey),
                             ),
-                            validator: (email) {
+                            validator: (password) {
                               if (!RegExp(
-                                      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                  .hasMatch(email!)) {
-                                return "Email error";
+                                      r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$")
+                                  .hasMatch(password!)) {
+                                return "Password error";
                               }
                             },
                           ),
-                          SizedBox(height: 25.0),
-                          SizedBox(
-                            height: 60,
-                            width: MediaQuery.of(context).size.width,
-                            child: TextFormField(
-                              controller: _passwordController,
-                              keyboardType: TextInputType.name,
-                              textInputAction: TextInputAction.done,
-                              cursorColor: Colors.blue,
-                              obscureText: _isSecured,
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                prefixIcon: Icon(
-                                  Icons.lock_outlined,
-                                  color: Colors.blue,
-                                ),
-                                suffix: IconButton(
-                                  splashRadius: 20,
-                                  icon: Icon(Icons.remove_red_eye_outlined,
-                                      color: Colors.blue),
-                                  onPressed: () {
-                                    setState(() {
-                                      _isSecured = !_isSecured;
-                                    });
-                                  },
-                                ),
-                                hintText: "Password",
-                                labelText: "Password",
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                  borderSide: BorderSide(color: Colors.blue),
-                                ),
-                                labelStyle: TextStyle(color: Colors.blue),
-                              ),
-                              validator: (password) {
-                                if (!RegExp(
-                                        r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$")
-                                    .hasMatch(password!)) {
-                                  return "Password error";
-                                }
-                              },
+                        ),
+                        Container(
+                          alignment: Alignment.centerRight,
+                          margin: EdgeInsets.only(bottom: 25),
+                          child: TextButton(
+                            style: TextButton.styleFrom(
+                              primary: Colors.black,
+                            ),
+                            onPressed: () {},
+                            child: Text(
+                              "Forgot your password?",
+                              style: TextStyle(
+                                  fontSize: FontsizeConst.SmallSize,
+                                  color: ConsColors.Black),
                             ),
                           ),
-                          Container(
-                            alignment: Alignment.centerRight,
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                primary: Colors.black,
-                              ),
-                              onPressed: () {},
-                              child: Text(
-                                "Forget Password?",
-                                style: TextStyle(
-                                    fontSize: FontsizeConst.SmallSize,
-                                    color: Colors.grey),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -190,10 +230,10 @@ class _LogInPageState extends State<LogInPage> {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: Colors.blue,
-                  fixedSize: const Size(350, 55),
+                  primary: ConsColors.EButton,
+                  fixedSize: const Size(325, 50),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(15)))),
+                      borderRadius: BorderRadius.all(Radius.circular(30)))),
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   String email = _emailController.text.trim().toLowerCase();
@@ -210,50 +250,21 @@ class _LogInPageState extends State<LogInPage> {
                 }
               },
               child: Text(
-                "LOG IN",
+                "Log in",
                 style: TextStyle(
-                    fontSize: FontsizeConst.MediumSize, color: Colors.white),
+                    fontSize: FontsizeConst.SmallSize, color: Colors.white),
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 55, vertical: 30),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Expanded(
-                    child: Divider(
-                      color: Colors.grey,
-                      thickness: 1.2,
-                      indent: 5,
-                      endIndent: 25,
-                    ),
-                  ),
-                  Text(
-                    "Or Continue with",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.grey, fontSize: FontsizeConst.MediumSize),
-                  ),
-                  const Expanded(
-                    child: Divider(
-                      color: Colors.grey,
-                      thickness: 1.2,
-                      indent: 25,
-                      endIndent: 5,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
+              margin: EdgeInsets.only(top: 120),
               alignment: Alignment.bottomCenter,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "New User?",
+                    "Don't have an account yet?",
                     style: TextStyle(
-                        fontSize: FontsizeConst.MediumSize, color: Colors.grey),
+                        fontSize: FontsizeConst.SmallSize, color: ConsColors.Black),
                   ),
                   TextButton(
                     style: TextButton.styleFrom(
@@ -263,10 +274,10 @@ class _LogInPageState extends State<LogInPage> {
                       Navigator.pushNamed(context, '/sign_up');
                     },
                     child: Text(
-                      "Create Account",
+                      "Sign up",
                       style: TextStyle(
-                          fontSize: FontsizeConst.MediumSize,
-                          color: Colors.black),
+                          fontSize: FontsizeConst.SmallSize,
+                          color: ConsColors.EButton),
                     ),
                   ),
                 ],
