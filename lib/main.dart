@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
           primary: ConsColors.Black,
         ),
       ),
-      initialRoute: '/',
+      initialRoute: '/home',
       onGenerateRoute: _myRoute.onGenerateRoute,
     );
   }

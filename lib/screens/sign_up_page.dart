@@ -54,7 +54,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Material(
-                            color: ConsColors.white,
+                            color: ConsColors.Google,
                             elevation: 4,
                             borderRadius: BorderRadius.circular(30.0),
                             clipBehavior: Clip.antiAliasWithSaveLayer,

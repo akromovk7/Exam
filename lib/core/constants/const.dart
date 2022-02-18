@@ -7,6 +7,7 @@ class ConsColors {
   static const Color white = Colors.white;
   static const Color HomeBack = Color(0XFF91D6FD);
   static const Color Facebook = Color(0XFF3B5999);
+  static const Color Google = Color(0XFFFEFDFD);
   static const Color EButton = Color(0XFF00CEC9);
 }
 
@@ -27,9 +28,13 @@ class PaddingMarginConst {
 }
 
 class FontsizeConst {
+  static const double SmallMiniSize = 9.0;
   static const double ExtraSmallSize = 12.0;
   static const double SmallSize = 14.0;
   static const double MediumSize = 18.0;
+  static const double MediiumSize = 19.0;
+  static const double SmallMediumSize = 16.0;
+  static const double MediumLargeSize = 22.0;
   static const double LargeSize = 24.0;
   static const double ExtraLargeSize = 30.0;
   static const double ExtraMegaSize = 46.0;
@@ -52,11 +57,13 @@ class RadiusConst {
 class FontweightConst {
   static const FontStyle italic = FontStyle.italic;
   static const FontWeight bold = FontWeight.bold;
+  static const FontWeight normal = FontWeight.normal;
   static const FontWeight w1 = FontWeight.w100;
   static const FontWeight w2 = FontWeight.w200;
   static const FontWeight w3 = FontWeight.w300;
   static const FontWeight w4 = FontWeight.w400;
   static const FontWeight w5 = FontWeight.w500;
+  static const FontWeight w6 = FontWeight.w600;
 }
 
 class SlashRadiusConst {
