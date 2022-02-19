@@ -1,16 +1,24 @@
 # exam
 
-A new Flutter project.
+DeliveryApp
 
-## Getting Started
+## Ilova haqida
 
-This project is a starting point for a Flutter application.
+### SplashPage va HomePage
+<p>
+<img src="./screenshots/Home.png" alt="Home" width="45%"> 
+<img src="./screenshots/splashscreen.png" alt="Splash" width="45%"></p>
 
-A few resources to get you started if this is your first Flutter project:
+<a href = "./lib/screens/home_page.dart">Home</a>
+<a href = "./lib/screens/splash_screen_page.dart">Splash</a>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+#### Sign in va Register Page
+<p>
+<img src="./screenshots/login.png" alt="LogIn" width="45%"> 
+<img src="./screenshots/signup.png" alt="SignUp" width="45%"> </p>
+<a href = "./lib/screens/log_in_page">Login</a>
+<a href = "./lib/screens/sign_up_page">SignUp</a>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+##### Details page
+<img src="./screenshots/details.png" alt="Details" width="45%"> 
+<a href = "./lib/screens/data_page">DetailsPage</a>
