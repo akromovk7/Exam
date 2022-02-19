@@ -15,7 +15,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
     // TODO: implement initState
     super.initState();
 
-    Timer(Duration(seconds: 1000), () {
+    Timer(Duration(seconds: 3), () {
       Navigator.pushReplacementNamed(context, '/log_in');
     });
   }

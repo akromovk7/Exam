@@ -1,6 +1,5 @@
 import 'package:exam/core/constants/const.dart';
 import 'package:exam/routes/my_route.dart';
-import 'package:exam/screens/splash_screen_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
           primary: ConsColors.Black,
         ),
       ),
-      initialRoute: '/home',
+      initialRoute: '/',
       onGenerateRoute: _myRoute.onGenerateRoute,
     );
   }
