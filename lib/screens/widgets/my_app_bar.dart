@@ -1,5 +1,6 @@
 import 'package:exam/core/constants/const.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MyAppBar extends StatelessWidget with PreferredSizeWidget {
   final String? title;
@@ -10,49 +11,50 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
       : super(key: key);
 
   @override
-  Size get preferredSize => Size(800, 300);
+  Size get preferredSize => Size(800, 150);
 
   @override
   Widget build(BuildContext context) {
-    return SliverAppBar(
+    return AppBar(
       backgroundColor: Colors.blue,
-      expandedHeight: 300,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(33.0),
-          bottomRight: Radius.circular(33.0),
-        ),
+      leading: IconButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        icon: SvgPicture.asset("assets/icons/arrow-left.svg"),
+        iconSize: FontsizeConst.LargeSize,
+        color: ConsColors.Black,
       ),
-      // leading: IconButton(
-      //   onPressed: () {
-      //     Navigator.pop(context);
-      //   },
-      //   icon: SvgPicture.asset("assets/icons/arrow-left.svg"),
-      //   iconSize: FontsizeConst.LargeSize,
-      //   color: ConsColors.Black,
-      // ),
       elevation: 0,
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            margin: EdgeInsets.only(top: 200, left: 30, right: 35),
-            child: Column(
-              children: [
-                Text(
-                  title ?? "",
-                  style: TextStyle(
-                      color: color ?? ConsColors.white,
-                      fontSize: FontsizeConst.LargeSize,
-                      fontWeight: FontweightConst.bold),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
+      // title: Column(
+      //   crossAxisAlignment: CrossAxisAlignment.start,
+      //   children: [
+      //     Container(
+      //       margin: EdgeInsets.only(top: 200, left: 30, right: 35),
+      //       child: Column(
+      //         children: [
+      //           Text(
+      //             title ?? "",
+      //             style: TextStyle(
+      //                 color: color ?? ConsColors.white,
+      //                 fontSize: FontsizeConst.LargeSize,
+      //                 fontWeight: FontweightConst.bold),
+      //           ),
+      //         ],
+      //       ),
+      //     ),
+      //   ],
+      // ),
       toolbarHeight: 300,
-      actions: [CircleAvatar(backgroundImage: AssetImage(image!),)],
+      actions: [
+        IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.favorite_sharp,
+            color: ConsColors.EButton,
+          ),
+        ),
+      ],
       flexibleSpace: FlexibleSpaceBar(
         background: Container(
           decoration: BoxDecoration(

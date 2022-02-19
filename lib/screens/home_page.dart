@@ -2,7 +2,6 @@ import 'package:exam/core/constants/const.dart';
 import 'package:exam/models/deals.dart';
 import 'package:exam/models/info.dart';
 import 'package:exam/models/popular.dart';
-import 'package:exam/models/userdata.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -15,9 +14,29 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _cI = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: ConsColors.EButton,
+        showSelectedLabels: true,
+        unselectedItemColor: Colors.grey,
+        currentIndex: _cI,
+        onTap: (int index) {
+          setState(() {
+            _cI = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Home'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.notifications_none_rounded),
+              label: 'Notification'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person_outline_rounded), label: 'Account'),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -363,116 +382,140 @@ class _MyHomePageState extends State<MyHomePage> {
               margin: EdgeInsets.only(left: 24.0),
               width: MediaQuery.of(context).size.width,
               height: 500,
-              child: ListView.builder(physics: NeverScrollableScrollPhysics(),
+              child: ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
                 itemCount: deals.length,
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) {
                   return Container(
                     width: 354.0,
                     height: 134.0,
-                    margin: EdgeInsets.only(left: 6.0,bottom: 20.0),
+                    margin: EdgeInsets.only(
+                      left: 6.0,
+                      bottom: 20.0,
+                    ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(
                         Radius.circular(20),
                       ),
                     ),
-                    child: Stack(
-                      children: [
-                        Image(
-                          image: deals[index]["img"],
-                          fit: BoxFit.cover,
-                        ),
-                        Positioned(
-                          top: 6,
-                          left: 134,
-                          bottom: 5,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                deals[index]["text1"],
-                                style: TextStyle(
-                                    color: ConsColors.Black,
-                                    fontSize: FontsizeConst.SmallSize,
-                                    fontWeight: FontweightConst.bold),
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(top: 5.0, bottom: 56),
-                                child: Text(
-                                  deals[index]["text2"],
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/data');
+                      },
+                      child: Stack(
+                        children: [
+                          Ink.image(
+                            image: deals[index]["img"],
+                            fit: BoxFit.cover,
+                          ),
+                          Positioned(
+                            top: 6,
+                            left: 134,
+                            bottom: 5,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  deals[index]["text1"],
                                   style: TextStyle(
                                       color: ConsColors.Black,
-                                      fontSize: FontsizeConst.SmallMiniSize,
-                                      fontWeight: FontweightConst.normal),
+                                      fontSize: FontsizeConst.SmallSize,
+                                      fontWeight: FontweightConst.bold),
                                 ),
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Icon(
-                                    Icons.place,
-                                    color: ConsColors.EButton,
-                                    size: 10,
-                                  ),
-                                  Text(
-                                    deals[index]["text3"],
+                                Container(
+                                  margin: EdgeInsets.only(top: 5.0, bottom: 56),
+                                  child: Text(
+                                    deals[index]["text2"],
                                     style: TextStyle(
                                         color: ConsColors.Black,
                                         fontSize: FontsizeConst.SmallMiniSize,
                                         fontWeight: FontweightConst.normal),
                                   ),
-                                  Text(
-                                    deals[index]["text4"],
-                                    style: TextStyle(
-                                        color: ConsColors.Black,
-                                        fontSize: FontsizeConst.SmallSize,
-                                        fontWeight: FontweightConst.w6),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.star,
-                                    color: ConsColors.EButton,
-                                    size: 10,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: ConsColors.EButton,
-                                    size: 10,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: ConsColors.EButton,
-                                    size: 10,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: ConsColors.EButton,
-                                    size: 10,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: ConsColors.EButton,
-                                    size: 10,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: ConsColors.EButton,
-                                    size: 10,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: ConsColors.EButton,
-                                    size: 10,
-                                  ),
-                                ],
-                              )
-                            ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Icon(
+                                      Icons.place,
+                                      color: ConsColors.EButton,
+                                      size: 10,
+                                    ),
+                                    Text(
+                                      deals[index]["text3"],
+                                      style: TextStyle(
+                                          color: ConsColors.Black,
+                                          fontSize: FontsizeConst.SmallMiniSize,
+                                          fontWeight: FontweightConst.normal),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.star,
+                                      color: ConsColors.EButton,
+                                      size: 10,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: ConsColors.EButton,
+                                      size: 10,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: ConsColors.EButton,
+                                      size: 10,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: ConsColors.EButton,
+                                      size: 10,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: ConsColors.EButton,
+                                      size: 10,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: ConsColors.EButton,
+                                      size: 10,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: ConsColors.EButton,
+                                      size: 10,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(left: 80),
+                                      child: Text(
+                                        deals[index]["text5"],
+                                        style: TextStyle(
+                                            color: ConsColors.Black,
+                                            fontSize: FontsizeConst.SmallTenSize,
+                                            fontWeight: FontweightConst.normal),
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                          Positioned(
+                            top: 91.0,
+                            right: 29.0,
+                            child: Text(
+                              deals[index]["text4"],
+                              style: TextStyle(
+                                  color: ConsColors.Black,
+                                  fontSize: FontsizeConst.SmallSize,
+                                  fontWeight: FontweightConst.w6),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   );
                 },

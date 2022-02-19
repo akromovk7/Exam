@@ -9,6 +9,7 @@ class ConsColors {
   static const Color Facebook = Color(0XFF3B5999);
   static const Color Google = Color(0XFFFEFDFD);
   static const Color EButton = Color(0XFF00CEC9);
+  static const Color Hdetails = Color(0XFF34495E);
 }
 
 class PaddingMarginConst {
@@ -29,9 +30,11 @@ class PaddingMarginConst {
 
 class FontsizeConst {
   static const double SmallMiniSize = 9.0;
+  static const double SmallTenSize = 10.0;
   static const double ExtraSmallSize = 12.0;
   static const double SmallSize = 14.0;
   static const double MediumSize = 18.0;
+  static const double MediumsixSize = 16.0;
   static const double MediiumSize = 19.0;
   static const double SmallMediumSize = 16.0;
   static const double MediumLargeSize = 22.0;

@@ -243,8 +243,10 @@ class _LogInPageState extends State<LogInPage> {
                     if (Userdata.users[i].email == email &&
                         Userdata.users[i].password == password) {
                       Userdata.currentUser = Userdata.users[i];
-                      Navigator.pushReplacementNamed(context, '/home',
-                          arguments: Userdata.users[i].name);
+                      Navigator.pushReplacementNamed(
+                        context,
+                        '/home',
+                      );
                     }
                   }
                 }
@@ -264,7 +266,8 @@ class _LogInPageState extends State<LogInPage> {
                   Text(
                     "Don't have an account yet?",
                     style: TextStyle(
-                        fontSize: FontsizeConst.SmallSize, color: ConsColors.Black),
+                        fontSize: FontsizeConst.SmallSize,
+                        color: ConsColors.Black),
                   ),
                   TextButton(
                     style: TextButton.styleFrom(

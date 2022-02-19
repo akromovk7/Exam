@@ -1,3 +1,4 @@
+import 'package:exam/screens/data_page.dart';
 import 'package:exam/screens/home_page.dart';
 import 'package:exam/screens/log_in_page.dart';
 import 'package:exam/screens/sign_up_page.dart';
@@ -17,6 +18,8 @@ class MyRoute {
         return MaterialPageRoute(builder: (_) => const SignUpPage());
       case '/home':        
         return MaterialPageRoute(builder: (_) => const MyHomePage());
+      case '/data':        
+        return MaterialPageRoute(builder: (_) => const DataPage());
     }
   }
 }
